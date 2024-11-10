@@ -13,7 +13,11 @@ class LocationManager: NSObject, ObservableObject {
     @Published var location: CLLocation?
     @Published var region = MKCoordinateRegion()
     
+    @Published var fromPositionCoordinate: CLLocationCoordinate2D = .position
+    @Published var toPositionCoordinate: CLLocationCoordinate2D = .position
+    
     private let locationManager = CLLocationManager()
+    private var isInitialLocationSet = false
     
     override init() {
         super.init()
@@ -23,6 +27,19 @@ class LocationManager: NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
     }
+    
+    func updateCoordinate(isFromLocation: Bool, to coordinate: CLLocationCoordinate2D) {
+        if isFromLocation {
+            fromPositionCoordinate = coordinate
+        } else {
+            toPositionCoordinate = coordinate
+        }
+        updateRegion(to: coordinate)
+    }
+    
+    func updateRegion(to coordinate: CLLocationCoordinate2D) {
+        region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -30,5 +47,10 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         self.location = location
         self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        
+        if !isInitialLocationSet {
+            fromPositionCoordinate = location.coordinate
+            isInitialLocationSet = true
+        }
     }
 }

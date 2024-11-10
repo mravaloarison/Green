@@ -24,19 +24,19 @@ struct SelectRouteView: View {
     
     @State private var fromLocationCoordinate: CLLocationCoordinate2D = .position
     @State private var toLocationCoordinate: CLLocationCoordinate2D = .position
-
+    
     var body: some View {
         List {
             LocationButton(icon: "location.fill.viewfinder", color: .yellow, label: fromLocationName) {
                 isFromLocation = true
                 showLocationInputSheet = true
             }
-
+            
             LocationButton(icon: "mappin.and.ellipse", color: .indigo, label: toLocationName) {
                 isFromLocation = false
                 showLocationInputSheet = true
             }
-
+            
             Section {
                 Button("Get Directions") {
                     print("Get Directions clicked")
@@ -54,19 +54,17 @@ struct SelectRouteView: View {
                 .presentationCornerRadius(18)
         }
     }
-
+    
     // MARK: - Update location data
     private func updateLocationData() {
         let coordinate = selectedPlace.mapItem.placemark.coordinate
-
+        
         if isFromLocation {
             fromLocationName = selectedPlace.name
-            fromLocationCoordinate = coordinate
-            locationManager.location = selectedPlace
-            
+            locationManager.updateCoordinate(isFromLocation: true, to: coordinate)
         } else {
             toLocationName = selectedPlace.name
-            toLocationCoordinate = coordinate
+            locationManager.updateCoordinate(isFromLocation: false, to: coordinate)
         }
         
         isFromLocation = false
