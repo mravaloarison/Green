@@ -27,6 +27,8 @@ struct MapView: View {
     )
     
     @State private var isToLocationSet: Bool = false
+    
+    @State private var route: MKRoute?
 
     var body: some View {
         Map(position: $position) {
@@ -36,6 +38,12 @@ struct MapView: View {
             if isToLocationSet {
                 Marker(locationManager.toPositionName, systemImage: "location.fill.viewfinder", coordinate: locationManager.toPositionCoordinate)
                     .tint(.indigo)
+            }
+            
+            if locationManager.isPolyline {
+                MapPolyline(route!.polyline)
+                    .stroke(.green, lineWidth: 5)
+                // MapPolyline(coordinates: [CLLocationCoordinate2D]
             }
         }
         .mapStyle(.standard(elevation: .realistic))
@@ -52,7 +60,25 @@ struct MapView: View {
         .onChange(of: locationManager.toPositionCoordinate) {
             if locationManager.toPositionCoordinate != .defaultPosition2 {
                 isToLocationSet = true
+                calculateRoute()
                 position = .automatic
+            }
+        }
+    }
+    
+    // MARK: - Calculate route
+    private func calculateRoute() {
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: locationManager.fromPositionCoordinate))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: locationManager.toPositionCoordinate))
+        request.transportType = .automobile
+        
+        let directions = MKDirections(request: request)
+        directions.calculate { response, error in
+            if let response = response, let newRoute = response.routes.first {
+                route = newRoute
+            } else if let error = error {
+                print("Error calculating route: \(error)")
             }
         }
     }

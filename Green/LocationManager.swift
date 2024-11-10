@@ -19,6 +19,8 @@ class LocationManager: NSObject, ObservableObject {
     @Published var fromPositionName: String = "From location"
     @Published var toPositionName: String = "To location"
     
+    @Published var isPolyline: Bool = false
+    
     private let locationManager = CLLocationManager()
     private var isInitialLocationSet = false
     
@@ -46,6 +48,10 @@ class LocationManager: NSObject, ObservableObject {
         } else {
             toPositionName = locationName
         }
+    }
+    
+    func updatePolyline() {
+        isPolyline.toggle()
     }
     
     func updateRegion(to coordinate: CLLocationCoordinate2D) {

@@ -37,7 +37,7 @@ struct SelectRouteView: View {
             
             Section {
                 Button("Get Directions") {
-                    print("Get Directions clicked")
+                    locationManager.updatePolyline()
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -56,7 +56,7 @@ struct SelectRouteView: View {
     // MARK: - Update location data
     private func updateLocationData() {
         let coordinate = selectedPlace.mapItem.placemark.coordinate
-        
+                
         if isFromLocation {
             locationManager.fromPositionName = selectedPlace.name
             locationManager.updateCoordinate(isFromLocation: true, to: coordinate)
