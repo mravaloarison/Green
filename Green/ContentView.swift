@@ -43,14 +43,15 @@ struct ContentView: View {
                         switch selectedMenu {
                             case .carTypes:
                                 SelectCarView()
-                                    .presentationDetents([.fraction(0.30)])
+                                    .presentationDetents([.fraction(0.39)])
                             case .route:
                                 SelectRouteView()
-                                    .presentationDetents([.fraction(0.33)])
+                                    .presentationDetents([.fraction(0.36)])
                                     .presentationDragIndicator(.visible)
                             case .emissionDetails:
                                 EmissionDetailsView()
-                                    .presentationDetents([.medium, .large])
+                                    .presentationDetents([.large])
+                                    .presentationDragIndicator(.visible)
                             default:
                                 Text("Select an option")
                         }

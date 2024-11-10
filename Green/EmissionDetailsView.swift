@@ -7,23 +7,29 @@
 
 import SwiftUI
 
-struct EmissionDetailsView: View {
-    @State private var isCarbonFootprintActive: Bool = true
+struct EmissionDetailsView: View {    
+    @EnvironmentObject var locationManager: LocationManager
+
+    @State private var isGreen: Bool = true
     
     var body: some View {
         VStack {
-            Toggle(isOn: $isCarbonFootprintActive, label: {
+            Toggle(isOn: $isGreen, label: {
                 HStack (spacing: 12) {
                     Image(systemName: "carbon.dioxide.cloud.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(isCarbonFootprintActive ? .green : .secondary)
+                        .foregroundColor(isGreen ? .green : .secondary)
                         .frame(width: 36, height: 36)
                     Text("Save the earth")
                         .font(.title3)
                 }
             })
             .toggleStyle(SwitchToggleStyle(tint: .green))
+            .onChange(of: isGreen) {
+                locationManager.updateGreen()
+                print("Location manager has been updated to", locationManager.isGreen)
+            }
             Spacer()
         }
         .padding()
@@ -32,4 +38,5 @@ struct EmissionDetailsView: View {
 
 #Preview {
     EmissionDetailsView()
+        .environmentObject(LocationManager())
 }
