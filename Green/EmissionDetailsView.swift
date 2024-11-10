@@ -84,9 +84,8 @@ struct EmissionDetailsView: View {
 
     private func updateEmissionsAndPoints() {
         let minutes = timeEstimated / 60.0
-        // Emission formula based on reference points
         savedCarbonFP = Float(10.93 - 0.186 * minutes)
-        pointsEarned = Float(savedCarbonFP * 10)  // Each lb saved = 10 points, adjust as needed
+        pointsEarned = Float(savedCarbonFP * 10)
     }
 }
 
