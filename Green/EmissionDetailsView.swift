@@ -11,7 +11,7 @@ struct EmissionDetailsView: View {
     @EnvironmentObject var locationManager: LocationManager
     
     @State private var timeEstimated: TimeInterval = 0.0
-    @State private var savedCarbonFP: Float = 2.7
+    @State private var savedCarbonFP: Float = 6.3
 
     var body: some View {
         if locationManager.isPolyline {
