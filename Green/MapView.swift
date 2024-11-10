@@ -28,7 +28,10 @@ struct MapView: View {
     
     @State private var isToLocationSet: Bool = false
     
-    @State private var route: MKRoute?
+    @State private var globalDefaultRoute: MKRoute?
+    @State private var globalLessCarbonEmissionRoute: MKRoute?
+    
+    @State private var isDefaultRouteActive: Bool = true
 
     var body: some View {
         Map(position: $position) {
@@ -41,8 +44,13 @@ struct MapView: View {
             }
             
             if locationManager.isPolyline {
-                MapPolyline(route!.polyline)
-                    .stroke(.green, lineWidth: 5)
+                if isDefaultRouteActive {
+                    MapPolyline(globalDefaultRoute!.polyline)
+                        .stroke(.blue, lineWidth: 5)
+                } else {
+                    MapPolyline(globalLessCarbonEmissionRoute!.polyline)
+                        .stroke(.green, lineWidth: 5)
+                }
                 // MapPolyline(coordinates: [CLLocationCoordinate2D]
             }
         }
@@ -72,11 +80,25 @@ struct MapView: View {
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: locationManager.fromPositionCoordinate))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: locationManager.toPositionCoordinate))
         request.transportType = .automobile
+        request.requestsAlternateRoutes = true
+
         
         let directions = MKDirections(request: request)
         directions.calculate { response, error in
-            if let response = response, let newRoute = response.routes.first {
-                route = newRoute
+            if let response = response {
+                let routes = response.routes  
+                
+                let defaultRoute = routes.first
+                let lessCarbonEmissionRoute = routes.max(by: { $0.distance < $1.distance })
+                
+                
+                if let defaultRoute = defaultRoute {
+                    globalDefaultRoute = defaultRoute
+                }
+                
+                if let lessCarbonEmissionRoute = lessCarbonEmissionRoute {
+                    globalLessCarbonEmissionRoute = lessCarbonEmissionRoute
+                }
             } else if let error = error {
                 print("Error calculating route: \(error)")
             }
