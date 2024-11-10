@@ -14,6 +14,18 @@
 		387C737D2CDFDD8700E581CD /* GreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C737C2CDFDD8700E581CD /* GreenTests.swift */; };
 		387C73872CDFDD8700E581CD /* GreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73862CDFDD8700E581CD /* GreenUITests.swift */; };
 		387C73892CDFDD8700E581CD /* GreenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73882CDFDD8700E581CD /* GreenUITestsLaunchTests.swift */; };
+		387C73962CDFE1B200E581CD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73952CDFE1B200E581CD /* MapView.swift */; };
+		387C73982CDFE58100E581CD /* SelectCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73972CDFE58100E581CD /* SelectCarView.swift */; };
+		387C739A2CDFE5A300E581CD /* SelectRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73992CDFE5A300E581CD /* SelectRouteView.swift */; };
+		387C739C2CDFE5BB00E581CD /* EmissionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C739B2CDFE5BB00E581CD /* EmissionDetailsView.swift */; };
+		387C739E2CDFEB7F00E581CD /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C739D2CDFEB7F00E581CD /* LocationInputView.swift */; };
+		387C73A02CDFFFE400E581CD /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C739F2CDFFFE400E581CD /* Place.swift */; };
+		387C73A22CE0011100E581CD /* PlaceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73A12CE0011100E581CD /* PlaceVM.swift */; };
+		387C73A42CE006C900E581CD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73A32CE006C900E581CD /* LocationManager.swift */; };
+		387C73A62CE01FC900E581CD /* ButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73A52CE01FC900E581CD /* ButtonData.swift */; };
+		387C73A82CE0202700E581CD /* TravelModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73A72CE0202700E581CD /* TravelModeButton.swift */; };
+		387C73AA2CE0205500E581CD /* TravelModeBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73A92CE0205500E581CD /* TravelModeBtn.swift */; };
+		387C73AC2CE0207E00E581CD /* ButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387C73AB2CE0207E00E581CD /* ButtonList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +56,18 @@
 		387C73822CDFDD8700E581CD /* GreenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		387C73862CDFDD8700E581CD /* GreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenUITests.swift; sourceTree = "<group>"; };
 		387C73882CDFDD8700E581CD /* GreenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		387C73952CDFE1B200E581CD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		387C73972CDFE58100E581CD /* SelectCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCarView.swift; sourceTree = "<group>"; };
+		387C73992CDFE5A300E581CD /* SelectRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRouteView.swift; sourceTree = "<group>"; };
+		387C739B2CDFE5BB00E581CD /* EmissionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmissionDetailsView.swift; sourceTree = "<group>"; };
+		387C739D2CDFEB7F00E581CD /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
+		387C739F2CDFFFE400E581CD /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		387C73A12CE0011100E581CD /* PlaceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceVM.swift; sourceTree = "<group>"; };
+		387C73A32CE006C900E581CD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		387C73A52CE01FC900E581CD /* ButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonData.swift; sourceTree = "<group>"; };
+		387C73A72CE0202700E581CD /* TravelModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelModeButton.swift; sourceTree = "<group>"; };
+		387C73A92CE0205500E581CD /* TravelModeBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelModeBtn.swift; sourceTree = "<group>"; };
+		387C73AB2CE0207E00E581CD /* ButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +119,19 @@
 			isa = PBXGroup;
 			children = (
 				387C736B2CDFDD8500E581CD /* GreenApp.swift */,
+				387C739F2CDFFFE400E581CD /* Place.swift */,
+				387C73A12CE0011100E581CD /* PlaceVM.swift */,
+				387C73A32CE006C900E581CD /* LocationManager.swift */,
 				387C736D2CDFDD8500E581CD /* ContentView.swift */,
+				387C73952CDFE1B200E581CD /* MapView.swift */,
+				387C73972CDFE58100E581CD /* SelectCarView.swift */,
+				387C73992CDFE5A300E581CD /* SelectRouteView.swift */,
+				387C739B2CDFE5BB00E581CD /* EmissionDetailsView.swift */,
+				387C739D2CDFEB7F00E581CD /* LocationInputView.swift */,
+				387C73AB2CE0207E00E581CD /* ButtonList.swift */,
+				387C73A52CE01FC900E581CD /* ButtonData.swift */,
+				387C73A92CE0205500E581CD /* TravelModeBtn.swift */,
+				387C73A72CE0202700E581CD /* TravelModeButton.swift */,
 				387C736F2CDFDD8700E581CD /* Assets.xcassets */,
 				387C73712CDFDD8700E581CD /* Preview Content */,
 			);
@@ -257,8 +293,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387C73A82CE0202700E581CD /* TravelModeButton.swift in Sources */,
+				387C73A22CE0011100E581CD /* PlaceVM.swift in Sources */,
 				387C736E2CDFDD8500E581CD /* ContentView.swift in Sources */,
+				387C73A42CE006C900E581CD /* LocationManager.swift in Sources */,
+				387C73962CDFE1B200E581CD /* MapView.swift in Sources */,
 				387C736C2CDFDD8500E581CD /* GreenApp.swift in Sources */,
+				387C73A02CDFFFE400E581CD /* Place.swift in Sources */,
+				387C73982CDFE58100E581CD /* SelectCarView.swift in Sources */,
+				387C73AA2CE0205500E581CD /* TravelModeBtn.swift in Sources */,
+				387C73AC2CE0207E00E581CD /* ButtonList.swift in Sources */,
+				387C739C2CDFE5BB00E581CD /* EmissionDetailsView.swift in Sources */,
+				387C739A2CDFE5A300E581CD /* SelectRouteView.swift in Sources */,
+				387C739E2CDFEB7F00E581CD /* LocationInputView.swift in Sources */,
+				387C73A62CE01FC900E581CD /* ButtonData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +473,9 @@
 				DEVELOPMENT_TEAM = 482SRM2C9K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to the device's location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to the device's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +505,9 @@
 				DEVELOPMENT_TEAM = 482SRM2C9K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires access to the device's location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to the device's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

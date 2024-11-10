@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct ButtonList: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @Binding var selectedMenu: SelectedMenu?
 
-#Preview {
-    ButtonList()
+    var body: some View {
+        let buttons = [
+            ButtonData(iconName: "car.fill", color: .brown) {
+                selectedMenu = .carTypes
+            },
+            ButtonData(iconName: "map.fill", color: .cyan) {
+                selectedMenu = .route
+            },
+            ButtonData(iconName: "carbon.dioxide.cloud.fill", color: .green) {
+                selectedMenu = .emissionDetails
+            }
+        ]
+        
+        HStack(spacing: 12) {
+            ForEach(buttons.indices, id: \.self) { index in
+                TravelModeButton(buttonData: buttons[index])
+            }
+        }
+    }
 }

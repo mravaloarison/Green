@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct TravelModeButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    let buttonData: ButtonData
 
-#Preview {
-    TravelModeButton()
+    var body: some View {
+        Button("") {
+            buttonData.action()
+        }
+        .buttonStyle(TravelModeBtn(sysImgName: buttonData.iconName, fgColor: buttonData.color))
+    }
 }

@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct SelectCarView: View {
+    @State private var seasons = ["Gasoline", "Electric", "Hybrid", "Diesel"]
+    @State private var selectedSeason = "Gasoline"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List {
+                Picker("emission type", selection: $selectedSeason) {
+                    ForEach(seasons, id: \.self) { season in
+                        Text(season)
+                    }
+                }
+                .pickerStyle(.inline)
+                .onChange(of: selectedSeason, {
+                    print(selectedSeason, "selected")
+                })
+            }
     }
 }
 
 #Preview {
     SelectCarView()
 }
+

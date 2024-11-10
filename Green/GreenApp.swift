@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct GreenApp: App {
     var body: some Scene {
+        @StateObject var locationManager = LocationManager()
+        
         WindowGroup {
             ContentView()
+                .environmentObject(locationManager)
         }
     }
 }
