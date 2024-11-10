@@ -11,13 +11,14 @@ struct EmissionDetailsView: View {
     @EnvironmentObject var locationManager: LocationManager
     
     @State private var timeEstimated: TimeInterval = 0.0
-    @State private var savedCarbonFP: Float = 6.3
+    @State private var savedCarbonFP: Float = 0.0
+    @State private var pointsEarned: Float = 0.0
 
     var body: some View {
         if locationManager.isPolyline {
             VStack(spacing: 16) {
                 GreenToggle(isOn: $locationManager.isGreen)
-                Details(isGreen: $locationManager.isGreen, savedCarbonFP: $savedCarbonFP, timeEstimated: formattedTime())
+                Details(isGreen: $locationManager.isGreen, savedCarbonFP: $savedCarbonFP, pointsEarned: $pointsEarned, timeEstimated: formattedTime())
 
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
@@ -38,7 +39,6 @@ struct EmissionDetailsView: View {
                                 }
                             }
                         }
-
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -51,9 +51,11 @@ struct EmissionDetailsView: View {
             .padding()
             .onAppear {
                 updateEstimatedTime()
+                updateEmissionsAndPoints()
             }
-            .onChange(of: locationManager.isGreen) { 
+            .onChange(of: locationManager.isGreen) {
                 updateEstimatedTime()
+                updateEmissionsAndPoints()
             }
         } else {
             VStack(spacing: 20) {
@@ -61,7 +63,7 @@ struct EmissionDetailsView: View {
                     .resizable()
                     .frame(width: 60, height: 60)
                     .foregroundColor(.secondary)
-                Text("There is no details to display yet")
+                Text("There are no details to display yet")
                     .foregroundStyle(.secondary)
             }
         }
@@ -79,11 +81,19 @@ struct EmissionDetailsView: View {
         let minutes = Int(timeEstimated / 60)
         return "\(minutes) min"
     }
+
+    private func updateEmissionsAndPoints() {
+        let minutes = timeEstimated / 60.0
+        // Emission formula based on reference points
+        savedCarbonFP = Float(10.93 - 0.186 * minutes)
+        pointsEarned = Float(savedCarbonFP * 10)  // Each lb saved = 10 points, adjust as needed
+    }
 }
 
 struct Details: View {
     @Binding var isGreen: Bool
     @Binding var savedCarbonFP: Float
+    @Binding var pointsEarned: Float
     var timeEstimated: String
     
     var body: some View {
@@ -95,7 +105,7 @@ struct Details: View {
                     .foregroundColor(isGreen ? .green : .secondary)
             }
             HStack(alignment: .bottom) {
-                Text("\(savedCarbonFP, specifier: "%.1f") lbs")
+                Text("\(savedCarbonFP, specifier: "%.2f") lbs")
                     .font(.title)
                 if isGreen {
                     Text("traffic emission avoided")
@@ -103,14 +113,14 @@ struct Details: View {
                     Image(systemName: "checkmark.seal.fill")
                         .foregroundColor(.green)
                 } else {
-                    Text("avg of CO2")
+                    Text("avg CO₂")
                         .foregroundColor(.secondary)
                     Image(systemName: "smoke.fill")
                         .foregroundColor(.secondary)
                 }
             }
             if isGreen {
-                Text("(+ 23 points)")
+                Text("(+ \(Int(pointsEarned)) points)")
                     .font(.callout)
                     .foregroundColor(.brown)
             }
