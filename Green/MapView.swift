@@ -30,8 +30,6 @@ struct MapView: View {
     
     @State private var globalDefaultRoute: MKRoute?
     @State private var globalLessCarbonEmissionRoute: MKRoute?
-    
-    @State private var isDefaultRouteActive: Bool = true
 
     var body: some View {
         Map(position: $position) {
@@ -44,12 +42,12 @@ struct MapView: View {
             }
             
             if locationManager.isPolyline {
-                if isDefaultRouteActive {
-                    MapPolyline(globalDefaultRoute!.polyline)
-                        .stroke(.blue, lineWidth: 5)
-                } else {
+                if locationManager.isGreen {
                     MapPolyline(globalLessCarbonEmissionRoute!.polyline)
                         .stroke(.green, lineWidth: 5)
+                } else {
+                    MapPolyline(globalDefaultRoute!.polyline)
+                        .stroke(.blue, lineWidth: 5)
                 }
                 // MapPolyline(coordinates: [CLLocationCoordinate2D]
             }
@@ -94,10 +92,22 @@ struct MapView: View {
                 
                 if let defaultRoute = defaultRoute {
                     globalDefaultRoute = defaultRoute
+                    print(defaultRoute.steps)
+                    locationManager.updateRoute(isGreen: false, to: defaultRoute)
+                    
+                    for step in defaultRoute.steps {
+                        print(step.instructions)
+                    }
                 }
                 
                 if let lessCarbonEmissionRoute = lessCarbonEmissionRoute {
                     globalLessCarbonEmissionRoute = lessCarbonEmissionRoute
+                    print(lessCarbonEmissionRoute.steps)
+                    locationManager.updateRoute(isGreen: true, to: lessCarbonEmissionRoute)
+                    
+                    for step in lessCarbonEmissionRoute.steps {
+                        print(step.instructions)
+                    }
                 }
             } else if let error = error {
                 print("Error calculating route: \(error)")

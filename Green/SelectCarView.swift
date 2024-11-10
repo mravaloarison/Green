@@ -9,20 +9,20 @@ import SwiftUI
 
 struct SelectCarView: View {
     @State private var seasons = ["Gasoline", "Electric", "Hybrid", "Diesel"]
-    @State private var selectedSeason = "Gasoline"
+    @State private var selectedSeason = "Diesel"
     
     var body: some View {
-            List {
-                Picker("emission type", selection: $selectedSeason) {
-                    ForEach(seasons, id: \.self) { season in
-                        Text(season)
-                    }
+        List {
+            Picker("emission type", selection: $selectedSeason) {
+                ForEach(seasons, id: \.self) { season in
+                    Text(season)
                 }
-                .pickerStyle(.inline)
-                .onChange(of: selectedSeason, {
-                    print(selectedSeason, "selected")
-                })
             }
+            .pickerStyle(.inline)
+            .onChange(of: selectedSeason, {
+                print(selectedSeason, "selected")
+            })
+        }
     }
 }
 

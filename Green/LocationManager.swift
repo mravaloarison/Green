@@ -22,6 +22,9 @@ class LocationManager: NSObject, ObservableObject {
     @Published var isPolyline: Bool = false
     @Published var isGreen: Bool = true
     
+    @Published var defaultRoute: MKRoute?
+    @Published var GreenRoute: MKRoute?
+    
     private let locationManager = CLLocationManager()
     private var isInitialLocationSet = false
     
@@ -51,6 +54,14 @@ class LocationManager: NSObject, ObservableObject {
         }
     }
     
+    func updateRoute(isGreen: Bool, to newRoute: MKRoute?) {
+        if isGreen {
+            GreenRoute = newRoute ?? nil
+        } else {
+            defaultRoute = newRoute ?? nil
+        }
+    }
+     
     func updatePolyline() {
         isPolyline.toggle()
     }
