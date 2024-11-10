@@ -19,20 +19,18 @@ struct SelectRouteView: View {
     @State private var isFromLocation = false
     @State private var selectedPlace = Place(mapItem: MKMapItem())
     
-    @State private var fromLocationName: String = "From location"
-    @State private var toLocationName: String = "To Location"
     
     @State private var fromLocationCoordinate: CLLocationCoordinate2D = .position
     @State private var toLocationCoordinate: CLLocationCoordinate2D = .position
     
     var body: some View {
         List {
-            LocationButton(icon: "location.fill.viewfinder", color: .yellow, label: fromLocationName) {
+            LocationButton(icon: "location.fill.viewfinder", color: .yellow, label: locationManager.fromPositionName) {
                 isFromLocation = true
                 showLocationInputSheet = true
             }
             
-            LocationButton(icon: "mappin.and.ellipse", color: .indigo, label: toLocationName) {
+            LocationButton(icon: "mappin.and.ellipse", color: .indigo, label: locationManager.toPositionName) {
                 isFromLocation = false
                 showLocationInputSheet = true
             }
@@ -60,10 +58,10 @@ struct SelectRouteView: View {
         let coordinate = selectedPlace.mapItem.placemark.coordinate
         
         if isFromLocation {
-            fromLocationName = selectedPlace.name
+            locationManager.fromPositionName = selectedPlace.name
             locationManager.updateCoordinate(isFromLocation: true, to: coordinate)
         } else {
-            toLocationName = selectedPlace.name
+            locationManager.toPositionName = selectedPlace.name
             locationManager.updateCoordinate(isFromLocation: false, to: coordinate)
         }
         

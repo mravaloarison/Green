@@ -16,6 +16,9 @@ class LocationManager: NSObject, ObservableObject {
     @Published var fromPositionCoordinate: CLLocationCoordinate2D = .position
     @Published var toPositionCoordinate: CLLocationCoordinate2D = .position
     
+    @Published var fromPositionName: String = "From location"
+    @Published var toPositionName: String = "To location"
+    
     private let locationManager = CLLocationManager()
     private var isInitialLocationSet = false
     
@@ -35,6 +38,14 @@ class LocationManager: NSObject, ObservableObject {
             toPositionCoordinate = coordinate
         }
         updateRegion(to: coordinate)
+    }
+    
+    func uptdateName(isFromLocation: Bool, to locationName: String) {
+        if isFromLocation {
+            fromPositionName = locationName
+        } else {
+            toPositionName = locationName
+        }
     }
     
     func updateRegion(to coordinate: CLLocationCoordinate2D) {

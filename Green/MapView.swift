@@ -30,11 +30,11 @@ struct MapView: View {
 
     var body: some View {
         Map(position: $position) {
-            Marker("From", systemImage: "car.fill", coordinate: locationManager.fromPositionCoordinate)
+            Marker(locationManager.fromPositionName, systemImage: "car.fill", coordinate: locationManager.fromPositionCoordinate)
                 .tint(.yellow)
 
             if isToLocationSet {
-                Marker("To", systemImage: "location.fill.viewfinder", coordinate: locationManager.toPositionCoordinate)
+                Marker(locationManager.toPositionName, systemImage: "location.fill.viewfinder", coordinate: locationManager.toPositionCoordinate)
                     .tint(.indigo)
             }
         }
