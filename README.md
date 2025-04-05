@@ -1,16 +1,12 @@
 # Green
 
-**Green** is a mobile app built to help reduce traffic emissions by guiding drivers toward routes with the fewest stops possible. 
+**Green** is an `iOS app` built to help reduce traffic emissions by guiding drivers toward routes with the fewest stops possible. 
 
 Each time a user completes a low-emission route, they earn *Green Points*. These points can be redeemed for exclusive discounts or perks from environmentally conscious sponsors like **WWF**, **National Geographic**, and others who support sustainability and climate-friendly initiatives.
 
----
-🏆 *Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute*
----
-
 ## Links
 
-- [Devpost link](https://devpost.com/software/green-aed7s9)
+- [Devpost link](https://devpost.com/software/green-aed7s9) 🏆 **Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute**
 - [GitHub Link](https://github.com/mravaloarison/Green)
 
 ## How I Built It
