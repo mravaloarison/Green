@@ -1,18 +1,20 @@
-# 🌿 Green – Emission-Aware Routing App
+# 🌿 Green
 
 
 **Devpost:** [Devpost link](https://devpost.com/software/green-aed7s9)
 
 **GitHub:** [GitHub Link](https://github.com/mravaloarison/Green)
 
-🏆 **Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute**
 
 
 ## 🚗 What It Does
 
-**Green** is a mobile app built to help reduce traffic emissions by guiding drivers toward routes with the fewest stops possible. The app intelligently analyzes real-time traffic data using MapKit and avoids congestion hotspots by recommending alternate, cleaner routes — even if those routes might take a bit longer.
+🏆 **Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute**
+
+**Green** is a mobile app built to help reduce traffic emissions by guiding drivers toward routes with the fewest stops possible. 
 
 Each time a user completes a low-emission route, they earn *Green Points*. These points can be redeemed for exclusive discounts or perks from environmentally conscious sponsors like **WWF**, **National Geographic**, and others who support sustainability and climate-friendly initiatives.
+
 
 ## 🛠️ How I Built It
 
@@ -22,7 +24,7 @@ I developed *Green* using:
 - **SwiftUI**
 - **MapKit**
 
-This project was my first hands-on experience with **MapKit**, and I built features like real-time traffic visualization and location-based search with autocomplete.
+This project was my first hands-on experience with **MapKit**, and I built features like real-time routes visualization and location-based search with autocomplete.
 
 ### 🔍 Sample: Place Autocompletion with MapKit
 
@@ -61,6 +63,6 @@ This allows the app to detect and visualize high-traffic zones so the user can b
 
 ## 🚧 Challenges I Ran Into
 
-This was my first time working with MapKit, and it didn’t come with the easiest documentation or community support, especially during a hackathon with no mentors for Swift. I spent several hours digging through documentation, StackOverflow threads, and YouTube tutorials to figure out the tools and build out the features I had in mind.
+This was my first time working with MapKit, and it didn’t come with the easiest documentation or community support, especially during a hackathon with no mentors for Swift. I spent several hours digging through documentation, StackOverflow, ChatGPT, and YouTube tutorials to figure out the tools and build out the features I had in mind.
 
-But in the end, every minute of effort was worth it. I gained confidence working with native iOS frameworks, and the project evolved into something I’m truly proud of.
+But in the end, every minute of effort was worth it and the project is now something I’m truly proud of.
