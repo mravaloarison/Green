@@ -1,22 +1,19 @@
-# 🌿 Green
-
-
-**Devpost:** [Devpost link](https://devpost.com/software/green-aed7s9)
-
-**GitHub:** [GitHub Link](https://github.com/mravaloarison/Green)
-
-
-
-## 🚗 What It Does
-
-🏆 **Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute**
+# Green
 
 **Green** is a mobile app built to help reduce traffic emissions by guiding drivers toward routes with the fewest stops possible. 
 
 Each time a user completes a low-emission route, they earn *Green Points*. These points can be redeemed for exclusive discounts or perks from environmentally conscious sponsors like **WWF**, **National Geographic**, and others who support sustainability and climate-friendly initiatives.
 
+---
+🏆 *Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute*
+---
 
-## 🛠️ How I Built It
+## Links
+
+- [Devpost link](https://devpost.com/software/green-aed7s9)
+- [GitHub Link](https://github.com/mravaloarison/Green)
+
+## How I Built It
 
 I developed *Green* using:
 
@@ -26,7 +23,7 @@ I developed *Green* using:
 
 This project was my first hands-on experience with **MapKit**, and I built features like real-time routes visualization and location-based search with autocomplete.
 
-### 🔍 Sample: Place Autocompletion with MapKit
+### Place Autocompletion with MapKit
 
 ```swift
 import MapKit
