@@ -1,7 +1,9 @@
 # 🌿 Green – Emission-Aware Routing App
 
-**Devpost:** [[Your Devpost Link Here](https://devpost.com/software/green-aed7s9)]  
-**GitHub:** [[Your GitHub Link Here](https://github.com/mravaloarison/Green)]
+🏆 **Winner – Best Sustainability Hack at Rensselaer Polytechnic Institute**
+
+**Devpost:** [Devpost link](https://devpost.com/software/green-aed7s9)
+**GitHub:** [GitHub Link](https://github.com/mravaloarison/Green)
 
 ## 🚗 What It Does
 
